@@ -36,7 +36,7 @@ const runProducer = async () => {
 		} catch (err) {
 			console.error("could not write message " + err)
 		}
-	}, 1000)
+	}, 5000)
 }
 
 runProducer();
