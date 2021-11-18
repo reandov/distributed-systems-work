@@ -1,8 +1,8 @@
 const { Kafka } = require('kafkajs')
 
 const kafka = new Kafka({
-  clientId: 'my-app',
-  brokers: ["localhost:9092"]
+	clientId: 'my-app',
+	brokers: ["localhost:9092"]
 })
 
 const producer = kafka.producer()
@@ -13,12 +13,12 @@ const runProducer = async () => {
 
 	setInterval(async () => {
 
-    const message = {
-      id: i,
-      latitude: -4.9466923,
-      longitude: -37.9766002,
-      event: "none"
-    };
+		const message = {
+			id: i,
+			latitude: -4.9466923,
+			longitude: -37.9766002,
+			event: "none"
+		};
 
 		try {
 			await producer.send({
