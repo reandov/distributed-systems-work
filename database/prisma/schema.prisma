@@ -15,10 +15,12 @@ model Client {
 }
 
 model Message {
-  id        String @id @default(uuid())
-  latitude  String
-  longitude String
-  event     String
+  messageId  String @id @default(uuid())
+  clientId   String
+  clientType String
+  latitude   String
+  longitude  String
+  event      String
 
   @@map("messages")
 }

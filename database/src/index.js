@@ -14,10 +14,13 @@ async function database() {
 
   await consumer.run({
     eachMessage: async ({ message }) => {
-      const newMessage = JSON.parse(message.value.toString());
+      const newMessage = await JSON.parse(message.value.toString());
 
       await prismaClient.message.create({
         data: {
+          messageId: String(newMessage.messageId),
+          clientId: String(newMessage.clientId),
+          clientType: String(newMessage.clientType),
           latitude: String(newMessage.latitude),
           longitude: String(newMessage.longitude),
           event: String(newMessage.event)
