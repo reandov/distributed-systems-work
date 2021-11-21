@@ -10,7 +10,7 @@ const consumer = kafka.consumer({ groupId: 'module-processor' })
 
 async function process() {
   await consumer.connect()
-  await consumer.subscribe({ topic: 'issue-certificate' })
+  await consumer.subscribe({ topic: 'messages' })
 
   await consumer.run({
     eachMessage: async ({ message }) => {

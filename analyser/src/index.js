@@ -26,7 +26,7 @@ function identifyProblem(problem) {
 
 async function analyse() {
   await consumer.connect()
-  await consumer.subscribe({ topic: 'issue-certificate' })
+  await consumer.subscribe({ topic: 'messages' })
 
   await consumer.run({
     eachMessage: async ({ message }) => {

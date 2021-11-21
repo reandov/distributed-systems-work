@@ -10,7 +10,7 @@ const consumer = kafka.consumer({ groupId: 'module-database' })
 
 async function database() {
   await consumer.connect()
-  await consumer.subscribe({ topic: 'issue-certificate' })
+  await consumer.subscribe({ topic: 'messages' })
 
   let connectedUsers = [];
 
@@ -28,6 +28,9 @@ async function database() {
           }
         })
       }
+
+      console.log(`Inserting new message: ${newMessage.messageId}`)
+      console.log(`from client: ${newMessage.clientId} \n`)
 
       await prismaClient.message.create({
         data: {

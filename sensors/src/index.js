@@ -48,7 +48,7 @@ const runSensor = async () => {
 
 		try {
 			await producer.send({
-				topic: 'issue-certificate',
+				topic: 'messages',
 				messages: [
 					{
 						key: uuid(),
