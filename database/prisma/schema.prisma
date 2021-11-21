@@ -11,16 +11,21 @@ model Client {
   id   String @id @default(uuid())
   type String
 
+  messages Message[]
+
   @@map("clients")
 }
 
 model Message {
   messageId  String @id @default(uuid())
-  clientId   String
   clientType String
   latitude   String
   longitude  String
   event      String
+
+  client Client @relation(fields: [clientId], references: [id])
+
+  clientId String
 
   @@map("messages")
 }

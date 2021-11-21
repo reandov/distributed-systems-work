@@ -49,7 +49,7 @@ const runSensor = async () => {
 
 		latitude = latitude += acc;
 		longitude = longitude += acc;
-	}, 5000)
+	}, 1000)
 }
 
 runSensor();
