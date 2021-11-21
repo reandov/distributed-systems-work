@@ -2,11 +2,11 @@ const { Kafka } = require('kafkajs')
 const { prismaClient } = require('./prisma')
 
 const kafka = new Kafka({
-  clientId: 'my-app',
+  clientId: 'database',
   brokers: ['localhost:9092']
 })
 
-const consumer = kafka.consumer({ groupId: 'certificate-group' })
+const consumer = kafka.consumer({ groupId: 'module-database' })
 
 async function database() {
   await consumer.connect()

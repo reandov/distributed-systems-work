@@ -1,2 +1,4 @@
-application/node_modules
+database/node_modules
+processor/node_modules
+analyser/node_modules
 sensors/node_modules
